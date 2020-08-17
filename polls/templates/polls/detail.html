@@ -1,0 +1,63 @@
+{% extends 'polls/base.html' %} {% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container">
+    <div class="col p-4 d-flex flex-column position-static">
+
+        <video style="margin-top: 10 !important;" width="960" height="480" controls>
+            <source src={{post.link}} type="video/mp4">
+        </video>
+
+        <h3 class="my-1"><a href="{% url 'detail' post.slug %}">{{post.title}}</a></h3>
+        <div style="display:flex">
+            {% for tag in post.tags.all %}
+            <a href="{% url 'tagged' tag.slug %}" class="mr-1 badge badge-info">#{{ tag }}</a>
+            {% endfor %}
+        </div>
+        
+        <p style="padding-top:1%; padding-bottom:1%;" class="mb-auto text-muted">{{post.published}}</p>
+        <a class="twitter-share-button"
+            href="https://twitter.com/intent/tweet?text={{post.title}}%20nisanyanhub.herokuapp.com%20aracılığıyla%20{{post.link}}"
+            data-size="large">
+            Tweet</a>
+    </div>
+
+
+    <div class="col-md-8 card mb-4  mt-3 ">
+        <div class="card-body">
+            <!-- comments -->
+            <h2>{{ comments.count }} yorum</h2>
+
+            {% for comment in comments %}
+            <div class="comments" style="padding: 10px;">
+                <p class="font-weight-bold">
+                    {{ comment.name }}
+                    <span class=" text-muted font-weight-normal">
+                        {{ comment.created_on }}
+                    </span>
+                </p>
+                {{ comment.body | linebreaks }}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-md-8 card mb-4  mt-3 ">
+        <div class="card-body">
+            {% if new_comment %}
+            <div class="alert alert-success" role="alert">
+                Yorumunuz onaylanmayı bekliyor.
+            </div>
+            {% else %}
+            <h3>Yorum bırak</h3>
+            <form method="post" style="margin-top: 1.3em;">
+                {{ comment_form | crispy}}
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary  btn-lg">Gönder</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+</div>
+{% endblock content %}

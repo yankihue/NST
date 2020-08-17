@@ -1,0 +1,19 @@
+{% extends 'polls/base.html' %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" name="title" placeholder="Add title">
+    </div>
+    <div class="form-group">
+        <label>Link</label>
+        <textarea type="text" class="form-control" name="link" placeholder="Add link"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Tags</label>
+        <input type="text" data-role="tagsinput" class="form-control" name="tags">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock content %}
