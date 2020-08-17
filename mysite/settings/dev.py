@@ -7,7 +7,14 @@ SECRET_KEY = 'qj2!fzsv$xe!ytv6ph0@27fcx-8vv+hkgs(xn51)@l#47u*#z8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-DATABASES = {'default': dj_database_url.config(os.path.join(BASE_DIR, "sqlite:///") + "db.sqlite3", conn_max_age=500)}
+DATABASES = {
+    'default': os.getenv(
+        'DATABASE_URL', 
+        dj_database_url.config(
+            os.path.join(BASE_DIR, "sqlite:///") + "db.sqlite3", conn_max_age=500
+        )
+    )
+}
 
 ALLOWED_HOSTS = ['localhost']
 
