@@ -9,7 +9,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', False)
 
-ALLOWED_HOSTS = ['nisanyantube.herokuapp.com', 'localhost', '127.0.0.1', '[::1]']
+ALLOWED_HOSTS = ['nisanyantube.herokuapp.com', '*', 'localhost', '127.0.0.1', '[::1]']
 
 
 prod_db = dj_database_url.config(conn_max_age=500)
