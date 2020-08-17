@@ -147,6 +147,7 @@ dmypy.json
 .pytype/
 .vscode/
 *.sqlite3
+*.dump
 
 
 # End of https://www.toptal.com/developers/gitignore/api/django
