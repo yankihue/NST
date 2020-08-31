@@ -4,6 +4,7 @@ from . import views
 
 
 urlpatterns = [
+    path('latestcomments/',views.latestcomments, name='latestcomments'),
     path('', views.home_view, name='home'),
     path('submit/', views.submit, name='submit'),
     path('tag/<slug:slug>/', views.tagged, name='tagged'),

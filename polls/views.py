@@ -4,13 +4,14 @@ from django.urls import reverse
 from .models import Choice, Question, Comment, Post
 from django.views import generic
 from django.template.defaultfilters import slugify
-from .forms import PostForm,CommentForm
+from .forms import PostForm, CommentForm
 from taggit.models import Tag
+
 
 
 def home_view(request):
     posts = Post.objects.order_by('-published')
-    
+
     # Show most common tags
     common_tags = Post.tags.most_common()[:25]
     form = PostForm(request.POST)
@@ -24,7 +25,8 @@ def home_view(request):
         'posts': posts,
         'common_tags': common_tags,
         'form': form,
-        
+        'comments': Comment.objects.order_by('-created_on')
+
     }
     return render(request, 'polls/home.html', context)
 
@@ -37,6 +39,7 @@ def detail_view(request, slug):
 
     }
     return render(request, 'polls/detail.html', context)
+
 
 def post_detail(request, slug):
     template_name = 'polls/detail.html'
@@ -62,21 +65,22 @@ def post_detail(request, slug):
                                            'new_comment': new_comment,
                                            'comment_form': comment_form})
 
-                                           
+
 def tagged(request, slug):
     tag = get_object_or_404(Tag, slug=slug)
     common_tags = Post.tags.most_common()[:25]
 
     # Filter posts by tag name
-    posts = Post.objects.filter(tags=tag)
+    posts = Post.objects.filter(tags=tag).order_by('-published')
     context = {
         'tag': tag,
         'posts': posts,
         'common_tags': common_tags,
 
-        
+
     }
     return render(request, 'polls/home.html', context)
+
 
 def submit(request):
     form = PostForm(request.POST)
@@ -87,6 +91,15 @@ def submit(request):
         # Without this next line the tags won't be saved.
         form.save_m2m()
     context = {
-        'form': form,   
+        'form': form,
     }
     return render(request, 'polls/submit.html', context)
+
+def latestcomments(request):
+   
+    comments = Comment.objects.filter(active=True)
+    context = {
+        'comments': comments.order_by('-created_on'),
+        'showlatestcomments': True,
+    }
+    return render(request, 'polls/comments.html', context)

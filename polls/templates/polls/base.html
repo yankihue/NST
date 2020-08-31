@@ -16,6 +16,7 @@
         <a href="{% url 'submit' %}"><button class="btn btn-primary">Yükle</button></a>
 
         {% endif %}
+        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -29,6 +30,17 @@
 
 
     {% block content %}{% endblock content %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
+    <script> function showLatestComments() {
+            fetch('latestcomments/').then(
+                function (response) {
+                }).catch(function (err) {
+                    console.log('Fetch Error', err);
+                });
+                console.log('dab');
+        }</script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

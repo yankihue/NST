@@ -7,7 +7,7 @@ import dj_database_url
 SECRET_KEY = 'qj2!fzsv$xe!ytv6ph0@27fcx-8vv+hkgs(xn51)@l#47u*#z8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 db = dj_database_url.config(default="sqlite:///db.sqlite3", conn_max_age=500)
 

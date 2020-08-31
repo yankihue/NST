@@ -1,0 +1,20 @@
+{% extends 'polls/base.html' %}
+{% block content %}
+<ul class="list-group mx-auto mt-5" style="width: 50%;">
+    <li class="list-group-item active">Son Yorumlar</li>
+    {% for comment in comments %}
+
+    <li class="list-group-item">
+        <div class="row"><a class="ml-2" href="{% url 'detail' comment.post.slug %}">{{comment.post}}</a><p class="text-secondary">&nbsp; videosunda</p></div>
+        <div class="col">
+        <p class="float-left"><strong>{{comment.name}}</strong><p class="text-secondary">&nbsp; şöyle dedi:</p></p>
+        <p class="mt-2 text-break float-center">{{comment.body}}</p>
+        </div>
+
+    </li>
+
+    <p class="text-secondary text-center">{{comment.created_on}}</p>
+
+    {%endfor %}
+</ul>
+{% endblock content %}
