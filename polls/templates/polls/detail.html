@@ -3,10 +3,14 @@
 
 <div class="container">
     <div class="col p-4 d-flex flex-column position-static">
-
-        <video style="margin-top: 10 !important;" width="960" height="480" controls>
-            <source src={{post.link}} type="video/mp4">
-        </video>
+        <div class="detail-sizer">
+            <div class="embed-responsive embed-responsive-16by9">
+                <video style="margin-top: 10 !important;" controls>
+                    <source src={{post.link}} type="video/mp4">
+                </video>
+            </div>
+        </div>
+        
 
         <h3 class="my-1"><a href="{% url 'detail' post.slug %}">{{post.title}}</a></h3>
         <div style="display:flex">

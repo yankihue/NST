@@ -3,7 +3,7 @@
 
 <div class="row-auto">
     
-    <div class="pl-5">
+    <div class="mt-5" style="text-align: center;">
         <form action='latestcomments' method='GET'>
             <button class="btn btn-primary">Son Yorumlar</button>
         </form>
@@ -31,10 +31,14 @@
                                 <a href="{% url 'tagged' tag.slug %}" class="mr-1 badge badge-info">#{{ tag }}</a>
                                 {% endfor %}
                             </div>
-
-                            <video width="450" height="240" controls>
-                                <source src={{post.link}} type="video/mp4">
-                            </video>
+                            <div class="sizer">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <video width="100%" height="100%" controls>
+                                        <source src={{post.link}} type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+                            
                             <b class="my-2"><a href="{% url 'detail' post.slug %}">Yorumlar</a></b>
                             <a style="display:table-cell;" class="twitter-share-button"
                                 href="https://twitter.com/intent/tweet?text={{post.title}}%20{{post.link}}"

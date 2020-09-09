@@ -2,3 +2,12 @@ li a {
     color: green;
 }
 
+.sizer {
+    max-width: 480px;
+    max-height:240px;
+  }
+
+.detail-sizer {
+    height:100%;
+    width:100%;
+  }
