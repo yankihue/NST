@@ -1,6 +1,6 @@
 # Nisanyantube
 
-Nisanyantube is a platform for sharing short clips taken from [Sevan Nişanyan's livestreams](https://en.wikipedia.org/wiki/Sevan_Nişanyan). You can check the live app at [nisanyantube.herokuapp.com](nisanyantube.herokuapp.com)
+Nisanyantube is a platform for sharing short clips/reaction videos taken from [Sevan Nişanyan's livestreams](https://www.youtube.com/channel/UCMixjxEx6t663lIf0aQBeSg). You can check the live app at [nisanyantube.herokuapp.com](nisanyantube.herokuapp.com)
 
 
 ## Installation
