@@ -1,6 +1,12 @@
 # Nisanyantube
 
-Nisanyantube is a platform for sharing short clips/reaction videos taken from [Sevan Nişanyan's livestreams](https://www.youtube.com/channel/UCMixjxEx6t663lIf0aQBeSg). You can check the live app at https://nisanyantube.herokuapp.com
+Nisanyantube is a platform made in [Django](https://www.djangoproject.com) for sharing short clips/reaction videos taken from [Sevan Nişanyan's livestreams](https://www.youtube.com/channel/UCMixjxEx6t663lIf0aQBeSg). You can check the live app at https://nisanyantube.herokuapp.com
+
+## Features
+* Filtering posts by tags
+* Commenting on posts
+* Upload button for admins
+* Twitter share options 
 
 
 ## Installation
