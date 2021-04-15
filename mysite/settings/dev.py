@@ -4,7 +4,7 @@ import dj_database_url
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'qj2!fzsv$xe!ytv6ph0@27fcx-8vv+hkgs(xn51)@l#47u*#z8'
+SECRET_KEY = 'secret key badabing badaboom'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
